@@ -375,7 +375,7 @@ static void wifi_cb(uint8_t u8MsgType, void *pvMsg)
 /************************************************************************/
 
 static void task_process(void *pvParameters) {
-
+  int post_inicial=1;
 	printf("task process created \n");
 	vTaskDelay(1000);
 
@@ -440,6 +440,11 @@ static void task_process(void *pvParameters) {
 			while(gbTcpConnection == false && tcp_client_socket >= 0){
 				vTaskDelay(10);
 			}
+			if(post_inicial==1){
+				state = POST;
+				post_inicial=0;
+				break;
+			}
 			
 			if( xSemaphoreTake(ySemaphore, ( TickType_t ) 500) == pdTRUE ){
 				state = POST_BUT;
@@ -450,7 +455,8 @@ static void task_process(void *pvParameters) {
 					contador_min =0;
 				}
 				else{
-					state = GET;
+						state = GET;
+					
 				}
 			}
 			break;
