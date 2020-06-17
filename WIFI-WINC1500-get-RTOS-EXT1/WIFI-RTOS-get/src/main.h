@@ -48,9 +48,9 @@ extern "C" {
 #include "driver/include/m2m_wifi.h"
 
 /** Wi-Fi Settings */
-#define MAIN_WLAN_SSID                    "#EleNao" /**< Destination SSID */
+#define MAIN_WLAN_SSID                    "wifi luca" /**< Destination SSID */
 #define MAIN_WLAN_AUTH                    M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK                     "1223334444" /**< Password for Destination SSID */
+#define MAIN_WLAN_PSK                     "leopardo" /**< Password for Destination SSID */
 
 /** Using broadcast address for simplicity. */
 #define MAIN_SERVER_PORT                    (5000)
@@ -61,8 +61,13 @@ extern "C" {
 /** Send buffer of TCP socket. */
 #define MAIN_PREFIX_BUFFER                  "GET /status HTTP/1.1\r\n Accept: */*\r\n\r\n"
 
+/** buffer para sensor digital. */
+#define MAIN_PREFIX_BUFFER_digital			"GET /digital HTTP/1.1\r\n Accept: */*\r\n\r\n"
+/** buffer para sensor analogico. */                  
+#define MAIN_PREFIX_BUFFER_analogico        "GET /analogico HTTP/1.1\r\n Accept: */*\r\n\r\n"       
+
 /** Weather information provider server. */
-#define MAIN_SERVER_NAME                    "192.168.0.138"
+#define MAIN_SERVER_NAME  "10.0.1.12"
 
 /** Receive buffer size. */
 #define MAIN_WIFI_M2M_BUFFER_SIZE           1400
